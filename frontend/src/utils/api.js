@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 export async function apiFetch(path, options = {}, token = null) {
   const headers = { "Content-Type": "application/json", ...options.headers };
