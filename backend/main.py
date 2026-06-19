@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from database import Base, engine
 from routers import auth, documents, signatures, audit
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,12 +12,8 @@ app = FastAPI(title="Document Signature App", version="1.0.0")
 # Allow React frontend to talk to this backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "https://docsign-app-seven.vercel.app",
-    ],
-    allow_origin_regex=r"https://docsign-.*\.vercel\.app",
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -32,3 +27,4 @@ app.include_router(audit.router,      prefix="/api/audit",      tags=["Audit"])
 @app.get("/")
 def root():
     return {"message": "Document Signature API is running"}
+
