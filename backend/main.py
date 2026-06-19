@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import Base, engine
 from routers import auth, documents, signatures, audit
+from fastapi.middleware.cors import CORSMiddleware
+import re
 
 # Create all DB tables on startup
 Base.metadata.create_all(bind=engine)
@@ -15,6 +17,7 @@ app.add_middleware(
         "http://localhost:3000",
         "https://docsign-app-seven.vercel.app",
     ],
+    allow_origin_regex=r"https://docsign-.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
