@@ -3,7 +3,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 
-const BASE = "http://localhost:8000";
+const BASE = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 export default function App() {
   const [token, setToken]   = useState(null);

@@ -6,7 +6,7 @@ import "react-pdf/dist/Page/TextLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
-const BASE = "http://localhost:8000";
+const BASE = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 export default function SignatureEditor({ doc, token, userName, onClose, onSigned }) {
   const [numPages, setNumPages]     = useState(null);
