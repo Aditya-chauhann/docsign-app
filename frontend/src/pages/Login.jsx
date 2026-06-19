@@ -35,7 +35,7 @@ export default function Login({ onSwitch, onLogin }) {
               <div className="auth-stat-label">Uptime SLA</div>
             </div>
             <div>
-              <div className="auth-stat-num">2M+</div>
+              <div className="auth-stat-num">2k+</div>
               <div className="auth-stat-label">Docs signed</div>
             </div>
             <div>
