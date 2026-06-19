@@ -8,3 +8,4 @@ python-dotenv==1.0.1
 pydantic[email]==2.7.1
 pymupdf==1.24.3
 pillow==10.3.0
+bcrypt==3.2.2
